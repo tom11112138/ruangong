@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电脑硬件展示中心 - 预览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #00f0ff 0%, #ff00ff 50%, #ffff00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .status-card {
+            background: rgba(20, 20, 35, 0.9);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .status-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #00f0ff;
+        }
+        
+        .status-content {
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature-item {
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #00f0ff;
+        }
+        
+        .feature-name {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .feature-desc {
+            font-size: 0.85rem;
+            color: #b0b0b0;
+        }
+        
+        .hardware-visual {
+            width: 200px;
+            height: 200px;
+            margin: 40px auto;
+            position: relative;
+        }
+        
+        .cpu-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00f0ff 0%, #0066ff 100%);
+            border-radius: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+        
+        .orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 50%;
+        }
+        
+        .orbit-1 { width: 120px; height: 120px; animation: rotate 15s linear infinite; }
+        .orbit-2 { width: 160px; height: 160px; animation: rotate 20s linear infinite reverse; }
+        .orbit-3 { width: 200px; height: 200px; animation: rotate 25s linear infinite; }
+        
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .orbit-item {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: rgba(20, 20, 35, 0.9);
+            border: 1px solid #00f0ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00f0ff;
+            font-size: 0.9rem;
+        }
+        
+        .instructions {
+            background: rgba(255, 0, 255, 0.1);
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+        
+        .instructions h3 {
+            color: #ff00ff;
+            margin-bottom: 15px;
+        }
+        
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Consolas', monospace;
+            text-align: left;
+            overflow-x: auto;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="logo">HARDWARE HUB</h1>
+        <p class="subtitle">电脑硬件展示中心 - 探索硬件的无限可能</p>
+        
+        <div class="status-card">
+            <h2 class="status-title">项目状态</h2>
+            <p class="status-content">
+                项目已成功创建！这是一个完整的电脑硬件展示平台，包含CPU、显卡、内存、硬盘四大类硬件的详细介绍和价格追踪功能。
+            </p>
+            
+            <div class="hardware-visual">
+                <div class="cpu-core">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <div class="orbit orbit-1">
+                    <div class="orbit-item"><i class="fas fa-tv"></i></div>
+                </div>
+                <div class="orbit orbit-2">
+                    <div class="orbit-item"><i class="fas fa-memory"></i></div>
+                </div>
+                <div class="orbit orbit-3">
+                    <div class="orbit-item"><i class="fas fa-hdd"></i></div>
+                </div>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-microchip"></i></div>
+                    <div class="feature-name">CPU处理器</div>
+                    <div class="feature-desc">Intel vs AMD 对比分析</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-tv"></i></div>
+                    <div class="feature-name">显卡GPU</div>
+                    <div class="feature-desc">NVIDIA vs AMD 技术对比</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-memory"></i></div>
+                    <div class="feature-name">内存RAM</div>
+                    <div class="feature-desc">DDR4 vs DDR5 参数解析</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-hdd"></i></div>
+                    <div class="feature-name">硬盘存储</div>
+                    <div class="feature-desc">HDD/SSD/NVMe 性能对比</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3><i class="fas fa-rocket"></i> 如何启动完整项目</h3>
+            <p>由于当前系统未安装Node.js，无法启动完整服务。请按以下步骤操作：</p>
+            
+            <div class="code-block">
+                <strong>1. 安装Node.js</strong><br>
+                访问 https://nodejs.org 下载并安装Node.js (建议版本16+)
+            </div>
+            
+            <div class="code-block">
+                <strong>2. 安装项目依赖</strong><br>
+                # 后端依赖<br>
+                cd backend<br>
+                npm install<br><br>
+                # 前端依赖<br>
+                cd ../frontend<br>
+                npm install
+            </div>
+            
+            <div class="code-block">
+                <strong>3. 启动项目</strong><br>
+                # 启动后端服务 (端口3001)<br>
+                cd backend<br>
+                npm start<br><br>
+                # 启动前端服务 (端口3000)<br>
+                cd ../frontend<br>
+                npm run dev
+            </div>
+            
+            <p>安装完成后，访问 <strong>http://localhost:3000</strong> 即可查看完整项目。</p>
+        </div>
+        
+        <div class="status-card">
+            <h2 class="status-title">项目亮点</h2>
+            <ul style="text-align: left; line-height: 1.8; padding-left: 20px;">
+                <li><strong>🎨 精美UI设计</strong> - 赛博朋克风格，50+种CSS动画效果</li>
+                <li><strong>📚 完整历史</strong> - 从1971年到2023年的硬件发展时间线</li>
+                <li><strong>📊 参数解析</strong> - 核心参数可视化展示和重要性评分</li>
+                <li><strong>💰 价格追踪</strong> - 实时价格展示和涨跌趋势标识</li>
+                <li><strong>🏢 品牌对比</strong> - Intel vs AMD、NVIDIA vs AMD详细对比</li>
+                <li><strong>📱 响应式设计</strong> - 完美适配各种屏幕尺寸</li>
+                <li><strong>🛒 选购指南</strong> - 针对不同用户群体的推荐建议</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>电脑硬件展示中心 &copy; 2024 | 项目文件已全部创建完成</p>
+            <p>查看项目说明：<a href="README.md" style="color: #00f0ff;">README.md</a></p>
+        </div>
+    </div>
+</body>
+</html>
