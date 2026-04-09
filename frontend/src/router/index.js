@@ -4,6 +4,7 @@ import CPU from '../views/CPU.vue'
 import GPU from '../views/GPU.vue'
 import Memory from '../views/Memory.vue'
 import Storage from '../views/Storage.vue'
+import Motherboard from '../views/Motherboard.vue'
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: '/storage',
     name: 'Storage',
     component: Storage
+  },
+  {
+    path: '/motherboard',
+    name: 'Motherboard',
+    component: Motherboard
   }
 ]
 

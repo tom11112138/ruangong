@@ -42,7 +42,8 @@ export default {
       { name: 'CPU', path: '/cpu', icon: 'fas fa-microchip' },
       { name: '显卡', path: '/gpu', icon: 'fas fa-tv' },
       { name: '内存', path: '/memory', icon: 'fas fa-memory' },
-      { name: '硬盘', path: '/storage', icon: 'fas fa-hdd' }
+      { name: '硬盘', path: '/storage', icon: 'fas fa-hdd' },
+      { name: '主板', path: '/motherboard', icon: 'fas fa-th-large' }
     ]
 
     const handleScroll = () => {

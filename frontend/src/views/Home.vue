@@ -178,6 +178,14 @@ export default {
         gradient: 'linear-gradient(135deg, #00ff88 0%, #00ffff 100%)',
         products: '250+',
         brands: '15+'
+      },
+      {
+        title: '主板',
+        icon: 'fas fa-th-large',
+        description: '连接所有硬件的平台，决定系统的扩展性和兼容性',
+        gradient: 'linear-gradient(135deg, #0066ff 0%, #00ff88 100%)',
+        products: '120+',
+        brands: '3'
       }
     ]
 

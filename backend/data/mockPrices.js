@@ -432,6 +432,110 @@ const mockPriceData = {
         interface: 'SATA 6Gbps'
       }
     }
+  ],
+  motherboard: [
+    {
+      id: 'mb-1',
+      name: '华硕 ROG MAXIMUS Z790 HERO',
+      brand: 'ASUS',
+      price: 4999,
+      originalPrice: 5499,
+      change: -2.1,
+      source: '京东',
+      url: 'https://item.jd.com/100059001234.html',
+      updateTime: Date.now(),
+      specs: {
+        socket: 'LGA1700',
+        formFactor: 'ATX',
+        memoryType: 'DDR5',
+        chipset: 'Z790'
+      }
+    },
+    {
+      id: 'mb-2',
+      name: '华硕 TUF GAMING B760M-PLUS',
+      brand: 'ASUS',
+      price: 1299,
+      originalPrice: 1499,
+      change: -1.5,
+      source: '京东',
+      url: 'https://item.jd.com/100059001235.html',
+      updateTime: Date.now(),
+      specs: {
+        socket: 'LGA1700',
+        formFactor: 'M-ATX',
+        memoryType: 'DDR5',
+        chipset: 'B760'
+      }
+    },
+    {
+      id: 'mb-3',
+      name: '微星 MEG Z790 GODLIKE',
+      brand: 'MSI',
+      price: 8999,
+      originalPrice: 9999,
+      change: 1.2,
+      source: '京东',
+      url: 'https://item.jd.com/100059001236.html',
+      updateTime: Date.now(),
+      specs: {
+        socket: 'LGA1700',
+        formFactor: 'E-ATX',
+        memoryType: 'DDR5',
+        chipset: 'Z790'
+      }
+    },
+    {
+      id: 'mb-4',
+      name: '微星 MAG B650M MORTAR',
+      brand: 'MSI',
+      price: 1099,
+      originalPrice: 1299,
+      change: -3.2,
+      source: '京东',
+      url: 'https://item.jd.com/100059001237.html',
+      updateTime: Date.now(),
+      specs: {
+        socket: 'AM5',
+        formFactor: 'M-ATX',
+        memoryType: 'DDR5',
+        chipset: 'B650'
+      }
+    },
+    {
+      id: 'mb-5',
+      name: '技嘉 AORUS Z790 XTREME',
+      brand: 'GIGABYTE',
+      price: 6999,
+      originalPrice: 7699,
+      change: -1.8,
+      source: '京东',
+      url: 'https://item.jd.com/100059001238.html',
+      updateTime: Date.now(),
+      specs: {
+        socket: 'LGA1700',
+        formFactor: 'E-ATX',
+        memoryType: 'DDR5',
+        chipset: 'Z790'
+      }
+    },
+    {
+      id: 'mb-6',
+      name: '技嘉 B760M AORUS ELITE',
+      brand: 'GIGABYTE',
+      price: 899,
+      originalPrice: 999,
+      change: -4.5,
+      source: '京东',
+      url: 'https://item.jd.com/100059001239.html',
+      updateTime: Date.now(),
+      specs: {
+        socket: 'LGA1700',
+        formFactor: 'M-ATX',
+        memoryType: 'DDR4',
+        chipset: 'B760'
+      }
+    }
   ]
 }
 
@@ -479,7 +583,8 @@ export async function getMockPrices(category, param = null) {
     cpu: 'cpu',
     gpu: 'gpu',
     memory: 'memory',
-    storage: 'storage'
+    storage: 'storage',
+    motherboard: 'motherboard'
   }
   
   const dataKey = categoryMap[category] || category
